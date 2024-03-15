@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import BreedCard from "../components/BreedCard";
 import Dropdown from "../components/Dropdown";
+import Banner from "../images/Banner.png";
 
 const Homepage = () => {
   const [dogBreeds, setDogBreeds] = useState([]);
@@ -32,8 +32,12 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div>
-      <Dropdown dogBreeds={dogBreeds} getDogData={getDogData} />
+    <div className="homecontainer">
+      <label>
+        Dog Breed
+        <Dropdown dogBreeds={dogBreeds} getDogData={getDogData} />
+      </label>
+      <img className="banner" src={Banner} alt="banner" />
     </div>
   );
 };

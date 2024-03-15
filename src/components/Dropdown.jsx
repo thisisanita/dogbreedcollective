@@ -9,7 +9,10 @@ const Dropdown = (props) => {
   const navigateToNewPage = (breedid) => navigate("/breeds/" + breedid);
 
   return (
-    <select onChange={(event) => navigateToNewPage(event.target.value)}>
+    <select
+      className="dropdown"
+      onChange={(event) => navigateToNewPage(event.target.value)}
+    >
       <option value="">Select Breed</option>
       {breeds.map((breed) => (
         // <Link to={`/breeds/${breed.id}`}>
