@@ -8,7 +8,7 @@ const TopicCard = (props) => {
   const [showResponse, setShowResponse] = useState([]);
   const [selectedTopicId, setSelectedTopicId] = useState(null);
   //   const [responses, setReponses] = useState([]);
-  const [responsesByTopic, setReponsesByTopic] = useState({});
+  const [responsesByTopic, setResponsesByTopic] = useState({});
 
   const breedId = props.breed.id;
   const topics = props.topics;
@@ -84,7 +84,7 @@ const TopicCard = (props) => {
       if (res.ok) {
         const data = await res.json();
         console.log("Fetched Responses:", data.records); // Log the fetched responses
-        setReponsesByTopic((prevResponses) => ({
+        setResponsesByTopic((prevResponses) => ({
           ...prevResponses,
           [selectedTopicId]: data.records,
         })); //Adds or updates the entry for the selectedTopicId with the new responses (data.records). If selectedTopicId already exists in the state, its value will be updated with data.records. If it doesn't exist, it will be added with data.records as its value.
@@ -98,10 +98,12 @@ const TopicCard = (props) => {
   };
 
   useEffect(() => {
-    if (selectedTopicId) {
-      getReplyData(selectedTopicId);
+    if (topics.length > 0) {
+      topics.forEach((topic) => {
+        getReplyData(topic.id);
+      });
     }
-  }, [selectedTopicId]);
+  }, [topics]);
 
   return (
     <div>
@@ -109,16 +111,17 @@ const TopicCard = (props) => {
         breed={props.breed}
         onRefreshTopics={refreshTopics}
       ></InputForm>
-      {showResponse && (
+      {/* {showResponse && (
         <div className="popup">
           <ResponseForm
             onClick={getReplyData}
             topicId={selectedTopicId}
             onClose={() => setShowResponse(false)}
             onRefreshResponse={refreshResponses}
+            selectedTopicId={selectedTopicId}
           />
         </div>
-      )}
+      )} */}
       <h1>Post</h1>
       {props.topics.map((topic, index) => (
         <div key={index}>
@@ -128,6 +131,29 @@ const TopicCard = (props) => {
             Created by {topic.fields.name} at {topic.createdTime}
           </p>
           <p>{topic.id}</p>
+
+          {responsesByTopic[topic.id]?.map((response, responseIndex) => {
+            return (
+              <div key={responseIndex}>
+                <p>{response.fields.description}</p>
+                <p>
+                  Created by {response.fields.name} at {response.createdTime}
+                </p>
+              </div>
+            );
+          })}
+
+          {showResponse && (
+            <div className="popup">
+              <ResponseForm
+                onClick={getReplyData}
+                topicId={selectedTopicId}
+                onClose={() => setShowResponse(false)}
+                onRefreshResponse={refreshResponses}
+                selectedTopicId={topic.id}
+              />
+            </div>
+          )}
           <Button
             onClick={() => {
               setSelectedTopicId(topic.id);
@@ -141,14 +167,14 @@ const TopicCard = (props) => {
           {/* Add more fields as needed */}
         </div>
       ))}
-      {responsesByTopic[topics.id]?.map((response, responseIndex) => {
+      {/* {responsesByTopic[topics.id]?.map((response, responseIndex) => {
         <div key={responseIndex}>
           <p>{response.fields.description}</p>
           <p>
             Created by {response.fields.name} at {response.createdTime}
           </p>
         </div>;
-      })}
+      })} */}
     </div>
   );
 };
