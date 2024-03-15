@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Button from "./Button";
 
 const ResponseForm = (props) => {
-  const selectedTopic = props.selectedTopicId;
+  const selectedTopic = props.topicId;
   console.log(selectedTopic);
 
   // // USEREF
@@ -62,12 +62,12 @@ const ResponseForm = (props) => {
         );
 
         if (res.ok) {
-          const newReplyData = await res.json();
-          //   props.onRefreshData();
+          //   const newReplyData = await res.json();
+          props.getReplyData(selectedTopic);
 
           console.log("hi");
 
-          console.log(newReplyData);
+          //   console.log(newReplyData);
         } else {
           console.log("an error has occured");
         }

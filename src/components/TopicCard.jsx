@@ -6,21 +6,23 @@ import Button from "./Button";
 const TopicCard = (props) => {
   //   const [topics, setTopics] = useState([]);
   const [showResponse, setShowResponse] = useState([]);
-  const [selectedTopicId, setSelectedTopicId] = useState(null);
+  //   const [selectedTopicId, setSelectedTopicId] = useState(null);
   //   const [responses, setReponses] = useState([]);
   const [responsesByTopic, setResponsesByTopic] = useState({});
 
   const breedId = props.breed.id;
   const topics = props.topics;
+  //   console.log(selectedTopicId);
 
-  const refreshTopics = () => {
-    getTopicData(breedId);
-  }; // creating a
+  //   const refreshTopics = () => {
+  //     getTopicData(breedId);
+  //   };
+  // creating a
   console.log(topics);
   console.log(breedId);
 
   const refreshResponses = () => {
-    getReplyData(selectedTopicId);
+    getReplyData();
   };
 
   // GET TOPIC DATA (FILTERED BY DOG ID FROM AIRTABLE)
@@ -107,10 +109,7 @@ const TopicCard = (props) => {
 
   return (
     <div>
-      <InputForm
-        breed={props.breed}
-        onRefreshTopics={refreshTopics}
-      ></InputForm>
+      <InputForm breed={props.breed} getTopicData={getTopicData}></InputForm>
       {/* {showResponse && (
         <div className="popup">
           <ResponseForm
@@ -147,22 +146,14 @@ const TopicCard = (props) => {
             <div className="popup">
               <ResponseForm
                 onClick={getReplyData}
-                topicId={selectedTopicId}
+                topicId={topic.id}
                 onClose={() => setShowResponse(false)}
                 onRefreshResponse={refreshResponses}
-                selectedTopicId={topic.id}
+                getReplyData={getReplyData}
+                // selectedTopicId={topic.id}
               />
             </div>
           )}
-          <Button
-            onClick={() => {
-              setSelectedTopicId(topic.id);
-              console.log("Selected Topic ID:", topic.id);
-              setShowResponse(true);
-            }}
-          >
-            reply
-          </Button>
 
           {/* Add more fields as needed */}
         </div>
