@@ -85,12 +85,15 @@ const InputForm = (props) => {
   };
 
   return (
-    <div>
-      <input type="text" ref={topicRef} placeholder="topic" />
-      <input type="text" ref={descriptionRef} placeholder="description" />
-      <input type="text" ref={nameRef} placeholder="name" />
-      <input type="text" ref={emailRef} placeholder="email" />
-      <Button onClick={handleSubmit}>Submit</Button>
+    <div className="overlay">
+      <div className="modal">
+        <input type="text" ref={topicRef} placeholder="topic" />
+        <input type="text" ref={descriptionRef} placeholder="description" />
+        <input type="text" ref={nameRef} placeholder="name" />
+        <input type="text" ref={emailRef} placeholder="email" />
+        <Button onClick={handleSubmit}>Submit</Button>
+        <Button onClick={props.toggleTopicModal}>close</Button>
+      </div>
     </div>
   );
 };

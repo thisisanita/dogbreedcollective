@@ -5,10 +5,11 @@ import Button from "./Button";
 
 const TopicCard = (props) => {
   //   const [topics, setTopics] = useState([]);
-  const [showResponse, setShowResponse] = useState([]);
+  const [showResponseModal, setShowResponseModal] = useState(false);
   //   const [selectedTopicId, setSelectedTopicId] = useState(null);
   //   const [responses, setReponses] = useState([]);
   const [responsesByTopic, setResponsesByTopic] = useState({});
+  const [showTopicModal, setShowTopicModal] = useState(false);
 
   const breedId = props.breed.id;
   const topics = props.topics;
@@ -21,9 +22,17 @@ const TopicCard = (props) => {
   console.log(topics);
   console.log(breedId);
 
-  const refreshResponses = () => {
-    getReplyData();
-  };
+  //   const refreshResponses = () => {
+  //     getReplyData();
+  //   };
+
+  const toggleTopicModal = () => {
+    setShowTopicModal(!showTopicModal);
+  }; //The toggleModal function toggles the value of showModal between true and false.
+
+  const toggleResponseModal = () => {
+    setShowResponseModal(!showResponseModal);
+  }; //The toggleModal function toggles the value of showModal between true and false.
 
   // GET TOPIC DATA (FILTERED BY DOG ID FROM AIRTABLE)
   const getTopicData = async (breedId) => {
@@ -109,7 +118,14 @@ const TopicCard = (props) => {
 
   return (
     <div>
-      <InputForm breed={props.breed} getTopicData={getTopicData}></InputForm>
+      <Button onClick={toggleTopicModal}>Post a Topic</Button>
+      {showTopicModal && (
+        <InputForm
+          breed={props.breed}
+          getTopicData={getTopicData}
+          toggleTopicModal={toggleTopicModal}
+        ></InputForm>
+      )}
       {/* {showResponse && (
         <div className="popup">
           <ResponseForm
@@ -121,7 +137,7 @@ const TopicCard = (props) => {
           />
         </div>
       )} */}
-      <h1>Post</h1>
+      {/* <h1>Post</h1> */}
       {props.topics.map((topic, index) => (
         <div key={index}>
           <h3>{topic.fields.topic}</h3>
@@ -141,15 +157,17 @@ const TopicCard = (props) => {
               </div>
             );
           })}
+          <Button onClick={toggleResponseModal}>Response</Button>
 
-          {showResponse && (
+          {showResponseModal && (
             <div className="popup">
               <ResponseForm
                 onClick={getReplyData}
                 topicId={topic.id}
-                onClose={() => setShowResponse(false)}
-                onRefreshResponse={refreshResponses}
+                //   onClose={() => setShowResponse(false)}
+                //   onRefreshResponse={refreshResponses}
                 getReplyData={getReplyData}
+                toggleResponseModal={toggleResponseModal}
                 // selectedTopicId={topic.id}
               />
             </div>

@@ -13,6 +13,10 @@ const BreedDetailPage = () => {
   const dogBreedId = breed.id;
   console.log(dogBreedId);
 
+  // const toggleModal = () => {
+  //   setShowTopicModal(!showTopicModal);
+  // }; //The toggleModal function toggles the value of showModal between true and false.
+
   // GET DOG BREED DATA FROM DOG API
   const getBreedData = async (signal) => {
     try {
@@ -84,8 +88,9 @@ const BreedDetailPage = () => {
   return (
     <>
       {/* <h1>{breedid}</h1> */}
+      {/* <InputForm breed={breed}></InputForm> */}
       <BreedCard breed={breed}></BreedCard>
-      <Button>Create a Post</Button>
+      {/* <Button onClick={toggleModal}>Create a Post</Button> */}
       <TopicCard
         breed={breed}
         topics={topics}
