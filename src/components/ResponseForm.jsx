@@ -63,6 +63,8 @@ const ResponseForm = (props) => {
 
         if (res.ok) {
           const newReplyData = await res.json();
+          props.onRefreshData();
+
           console.log("hi");
 
           console.log(newReplyData);

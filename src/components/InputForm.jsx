@@ -66,6 +66,7 @@ const InputForm = (props) => {
 
         if (res.ok) {
           const newPostData = await res.json();
+          props.onRefreshTopics();
           topicRef.current.value = "";
           console.log("hi");
 
