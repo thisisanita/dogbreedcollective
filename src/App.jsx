@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="/breeds/:breedid" element={<BreedDetailPage />} />
+      <Route path="/breeds/:breedId" element={<BreedDetailPage />} />
     </Routes>
   );
 }

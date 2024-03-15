@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import BreedCard from "../components/BreedCard";
 import { useParams } from "react-router-dom";
 import Dropdown from "../components/Dropdown";
+import Button from "../components/Button";
+import TopicCard from "../components/TopicCard";
+import InputForm from "../components/InputForm";
 
 const BreedDetailPage = () => {
-  const { breedid } = useParams();
+  const { breedId } = useParams();
   const [breed, setBreed] = useState({});
 
   // GET DATA FROM DOG API
@@ -12,7 +15,7 @@ const BreedDetailPage = () => {
   const getBreedData = async (signal) => {
     try {
       const res = await fetch(
-        "https://api.thedogapi.com/v1/breeds/" + breedid,
+        "https://api.thedogapi.com/v1/breeds/" + breedId,
         {
           signal,
         }
@@ -43,6 +46,8 @@ const BreedDetailPage = () => {
     <>
       {/* <h1>{breedid}</h1> */}
       <BreedCard breed={breed}></BreedCard>
+      <Button>Create a Post</Button>
+      <TopicCard breed={breed}></TopicCard>
     </>
   );
 };
