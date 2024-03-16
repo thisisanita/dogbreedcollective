@@ -8,6 +8,7 @@ const Button = (props) => {
       color="primary"
       sx={{
         borderRadius: "20px", // Set the border radius
+        letterSpacing: "3px",
       }}
       type="button"
       onClick={props.onClick}

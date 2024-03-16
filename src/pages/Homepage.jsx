@@ -34,6 +34,7 @@ const Homepage = () => {
 
   return (
     <Stack direction="column" spacing={5} alignItems="center">
+      <br></br>
       <Dropdown dogBreeds={dogBreeds} getDogData={getDogData} />
       <img
         src={Banner}

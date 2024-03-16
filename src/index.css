@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 .centered {
@@ -20,9 +20,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-/* App.css */
 
-.modal-background {
+/* .modal-background {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -31,16 +30,18 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.4);
-}
+} */
 
 .modal {
-  z-index: 100;
-  background-color: #fdfffc;
-  border: 1px solid #011627;
-  border-radius: 1em;
-  box-shadow: -2px 5px 5px #e71d36;
+  display: flex;
   width: 50%;
-  padding: 20px;
+  padding: 24px;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  gap: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--Schemes-Outline-Variant, #d4c4b5);
+  background: var(--Schemes-Surface-Bright, #fff8f4);
 }
 
 .button {
@@ -78,23 +79,22 @@ body {
   z-index: 5; /* Ensure the overlay is above other content */
 }
 
-.modal {
-  /* background-color: #fdfffc; */
-  border: 1px solid red;
-  /* border-radius: 1em;
-  box-shadow: -2px 5px 5px #e71d36;
-  width: 50%;
-  padding: 20px;
-  z-index: 100; Ensure the overlay is above other content
+/* .modal {
+  display: flex;
+  width: 59.625rem;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 } */
-}
-.homecontainer {
+
+/* .homecontainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
   gap: 80px;
-}
+} */
 
 .banner {
   width: 60%;
@@ -116,4 +116,135 @@ body {
   font-weight: 400;
   line-height: 24px; /* 150% */
   letter-spacing: 0.5px;
+}
+
+.breedcard {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  flex: 1 0 0;
+  /* border: solid 2px black; */
+  margin: 32px;
+}
+
+.breeddetail {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  flex-shrink: 0;
+  gap: 16px;
+  color: #000;
+  font-family: Roboto;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500px;
+  letter-spacing: 1px;
+  line-height: 44px; /* 122.222% */
+}
+
+h1 {
+  color: #000;
+  font-family: Roboto;
+  font-size: 36px;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 600px;
+  letter-spacing: 5px;
+  line-height: 44px; /* 122.222% */
+  padding: 16px;
+  margin: 16px;
+}
+.breedimage {
+  border-radius: 15%;
+  width: 40%;
+  height: auto;
+}
+
+span {
+  font-weight: 600;
+}
+
+h2 {
+  color: #000;
+
+  /* M3/headline/medium */
+  font-family: Roboto;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px;
+  margin: 8px;
+}
+
+h3 {
+  color: #000;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 133.333% */
+  margin: 0px;
+  padding: 0px 24px;
+}
+
+.topics {
+  display: flex;
+  width: 90%;
+  padding: 24px 16px;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  gap: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--Schemes-Outline-Variant, #d4c4b5);
+  background: var(--Schemes-Surface, #fff8f4);
+  margin: 32px;
+  color: #000;
+}
+
+.reponses {
+  display: flex;
+  width: 90%;
+  padding: 24px 16px;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  gap: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--Schemes-Outline-Variant, #d4c4b5);
+  background: var(--Schemes-Surface, #fff8f4);
+  margin: 32px;
+  color: #000;
+}
+
+p {
+  /* M3/body/large */
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.5px;
+  display: flex;
+  margin: 0px;
+  padding: 0px 24px;
+  /* justify-content: center;
+  align-items: center; */
+  gap: 8px;
+  align-self: stretch;
+}
+
+.smalltext {
+  color: black;
+  /* M3/label/medium - prominent */
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: 0.5px;
+  padding: 0px 24px;
 }

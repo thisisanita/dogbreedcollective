@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputForm from "./InputForm";
 import ResponseForm from "./ResponseForm";
 import Button from "./Button";
+import { Box } from "@mui/material";
 
 const TopicCard = (props) => {
   //   const [topics, setTopics] = useState([]);
@@ -118,7 +119,19 @@ const TopicCard = (props) => {
 
   return (
     <div>
-      <Button onClick={toggleTopicModal}>Post a Topic</Button>
+      <Button
+        onClick={toggleTopicModal}
+        sx={{
+          width: "90%",
+          borderRadius: "20px",
+          margin: "16px 32px 16px 32px",
+          padding: "8px",
+          fontSize: "18px",
+          letterSpacing: "3px",
+        }}
+      >
+        Post a Topic
+      </Button>
       {showTopicModal && (
         <InputForm
           breed={props.breed}
@@ -139,25 +152,40 @@ const TopicCard = (props) => {
       )} */}
       {/* <h1>Post</h1> */}
       {props.topics.map((topic, index) => (
-        <div key={index}>
+        <div className="topics" key={index}>
           <h3>{topic.fields.topic}</h3>
           <p>{topic.fields.description}</p>
-          <p>
+          <div className="smalltext">
             Created by {topic.fields.name} at {topic.createdTime}
-          </p>
-          <p>{topic.id}</p>
+          </div>
+          {/* <p>{topic.id}</p> */}
 
           {responsesByTopic[topic.id]?.map((response, responseIndex) => {
             return (
-              <div key={responseIndex}>
+              <div className="responses" key={responseIndex}>
                 <p>{response.fields.description}</p>
-                <p>
-                  Created by {response.fields.name} at {response.createdTime}
-                </p>
+                <div>
+                  <span>
+                    Created by {response.fields.name} at {response.createdTime}
+                  </span>
+                </div>
               </div>
             );
           })}
-          <Button onClick={toggleResponseModal}>Response</Button>
+          <Button
+            variant="outlined"
+            sx={{
+              width: "stretch",
+              borderRadius: "20px",
+              margin: "16px",
+              //   padding: "8px",
+              //   fontSize: "18px",
+              //   letterSpacing: "3px",
+            }}
+            onClick={toggleResponseModal}
+          >
+            Reply
+          </Button>
 
           {showResponseModal && (
             <div className="popup">

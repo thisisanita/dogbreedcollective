@@ -7,17 +7,15 @@ const BreedCard = (props) => {
   const finalUrl = `${baseUrl}${breed.reference_image_id}.jpg`;
   return (
     <>
-      <div className="row">
-        <h1>{breed.name}</h1>
-        <div className="col-sm-1">
-          <img src={finalUrl} alt={breed.name} width="100" height="100"></img>
+      <h1>{breed.name}</h1>
+      <div className="breedcard">
+        <img className="breedimage" src={finalUrl} alt={breed.name}></img>
+        <div className="breeddetail">
+          {breed.bred_for && <div>Bred for: {breed.bred_for}</div>}
+          <div>Breed Group: {breed.breed_group}</div>
+          <div>Life Span: {breed.life_span}</div>
+          <div>Temperament: {breed.temperament}</div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-sm-2">{breed.bred_for}</div>
-        <div className="col-sm-2">{breed.breed_group}</div>
-        <div className="col-sm-2">{breed.life_span}</div>
-        <div className="col-sm-2">{breed.temperament}</div>
       </div>
     </>
   );
