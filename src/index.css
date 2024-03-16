@@ -177,6 +177,7 @@ h2 {
   font-weight: 400;
   line-height: 36px;
   margin: 8px;
+  text-transform: uppercase;
 }
 
 h3 {
@@ -205,18 +206,19 @@ h3 {
   color: #000;
 }
 
-.reponses {
+.responses {
   display: flex;
-  width: 90%;
+  width: 95%;
   padding: 24px 16px;
   flex-direction: column;
   /* justify-content: center; */
   /* align-items: center; */
   gap: 16px;
   border-radius: 12px;
-  border: 1px solid var(--Schemes-Outline-Variant, #d4c4b5);
-  background: var(--Schemes-Surface, #fff8f4);
-  margin: 32px;
+  /* border: 1px solid var(--Schemes-Outline-Variant, #d4c4b5); */
+  background: var(--Schemes-Surface, rgba(238, 224, 212, 0.35));
+  margin: 0px 16px 0px 32px;
+  justify-content: center;
   color: #000;
 }
 
@@ -243,8 +245,16 @@ p {
   font-family: Roboto;
   font-size: 12px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 300;
   line-height: 16px; /* 133.333% */
   letter-spacing: 0.5px;
   padding: 0px 24px;
+}
+
+.image {
+  width: 50%;
+}
+
+.banner {
+  width: 60%;
 }

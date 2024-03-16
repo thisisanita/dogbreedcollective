@@ -13,7 +13,7 @@ const Dropdown = (props) => {
   const navigateToNewPage = (breedid) => navigate("/breeds/" + breedid);
 
   return (
-    <FormControl sx={{ width: 800 }}>
+    <FormControl sx={{ width: "70%" }}>
       <InputLabel id="dropdown-label">Select a Dog Breed</InputLabel>
       <MuiSelect
         labelId="dropdown-label"

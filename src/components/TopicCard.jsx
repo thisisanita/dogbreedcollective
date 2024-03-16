@@ -11,9 +11,11 @@ const TopicCard = (props) => {
   //   const [responses, setReponses] = useState([]);
   const [responsesByTopic, setResponsesByTopic] = useState({});
   const [showTopicModal, setShowTopicModal] = useState(false);
+  const [selectedTopicId, setSelectedTopicId] = useState(null);
 
   const breedId = props.breed.id;
   const topics = props.topics;
+
   //   console.log(selectedTopicId);
 
   //   const refreshTopics = () => {
@@ -31,8 +33,11 @@ const TopicCard = (props) => {
     setShowTopicModal(!showTopicModal);
   }; //The toggleModal function toggles the value of showModal between true and false.
 
-  const toggleResponseModal = () => {
+  const toggleResponseModal = (topicId) => {
     setShowResponseModal(!showResponseModal);
+    console.log("Topic ID to set:", topicId); // Debugging line
+    setSelectedTopicId(topicId);
+    console.log("Selected Topic ID after setting:", selectedTopicId); // Debugging line
   }; //The toggleModal function toggles the value of showModal between true and false.
 
   // GET TOPIC DATA (FILTERED BY DOG ID FROM AIRTABLE)
@@ -101,6 +106,7 @@ const TopicCard = (props) => {
           [selectedTopicId]: data.records,
         })); //Adds or updates the entry for the selectedTopicId with the new responses (data.records). If selectedTopicId already exists in the state, its value will be updated with data.records. If it doesn't exist, it will be added with data.records as its value.
         console.log("Updated Responses State:", responsesByTopic);
+        console.log(selectedTopicId);
       } else {
         console.log("an error has occured");
       }
@@ -164,10 +170,8 @@ const TopicCard = (props) => {
             return (
               <div className="responses" key={responseIndex}>
                 <p>{response.fields.description}</p>
-                <div>
-                  <span>
-                    Created by {response.fields.name} at {response.createdTime}
-                  </span>
+                <div className="smalltext">
+                  Created by {response.fields.name} at {response.createdTime}
                 </div>
               </div>
             );
@@ -175,30 +179,29 @@ const TopicCard = (props) => {
           <Button
             variant="outlined"
             sx={{
-              width: "stretch",
+              width: "strech",
               borderRadius: "20px",
-              margin: "16px",
+              margin: "0px 32px 0px 32px",
               //   padding: "8px",
               //   fontSize: "18px",
-              //   letterSpacing: "3px",
+              letterSpacing: "3px",
             }}
-            onClick={toggleResponseModal}
+            onClick={() => toggleResponseModal(topic.id)}
           >
             Reply
           </Button>
 
           {showResponseModal && (
-            <div className="popup">
-              <ResponseForm
-                onClick={getReplyData}
-                topicId={topic.id}
-                //   onClose={() => setShowResponse(false)}
-                //   onRefreshResponse={refreshResponses}
-                getReplyData={getReplyData}
-                toggleResponseModal={toggleResponseModal}
-                // selectedTopicId={topic.id}
-              />
-            </div>
+            <ResponseForm
+              onClick={getReplyData}
+              //   topicId={topic.id}
+              //   onClose={() => setShowResponse(false)}
+              //   onRefreshResponse={refreshResponses}
+              getReplyData={getReplyData}
+              toggleResponseModal={toggleResponseModal}
+              selectedTopicId={selectedTopicId}
+              // selectedTopicId={topic.id}
+            />
           )}
 
           {/* Add more fields as needed */}
