@@ -29,6 +29,24 @@ const TopicCard = (props) => {
   //     getReplyData();
   //   };
 
+  function convertTo12HourFormat(isoDateString) {
+    // Create a Date object from the ISO 8601 string
+    const date = new Date(isoDateString);
+
+    // Format the date to a 12-hour format
+    const formattedDate = date.toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true, // Use 12-hour format
+    });
+
+    return formattedDate;
+  }
+
   const toggleTopicModal = () => {
     setShowTopicModal(!showTopicModal);
   }; //The toggleModal function toggles the value of showModal between true and false.
@@ -162,7 +180,8 @@ const TopicCard = (props) => {
           <h3>{topic.fields.topic}</h3>
           <p>{topic.fields.description}</p>
           <div className="smalltext">
-            Created by {topic.fields.name} at {topic.createdTime}
+            Created by {topic.fields.name} at{" "}
+            {convertTo12HourFormat(topic.createdTime)}
           </div>
           {/* <p>{topic.id}</p> */}
 
@@ -171,7 +190,8 @@ const TopicCard = (props) => {
               <div className="responses" key={responseIndex}>
                 <p>{response.fields.description}</p>
                 <div className="smalltext">
-                  Created by {response.fields.name} at {response.createdTime}
+                  Created by {response.fields.name} at{" "}
+                  {convertTo12HourFormat(response.createdTime)}
                 </div>
               </div>
             );
