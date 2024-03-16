@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Dropdown from "../components/Dropdown";
 import Banner from "../images/Banner.png";
+import { Stack } from "@mui/material";
 
 const Homepage = () => {
   const [dogBreeds, setDogBreeds] = useState([]);
@@ -32,13 +33,14 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="homecontainer">
-      <label>
-        Dog Breed
-        <Dropdown dogBreeds={dogBreeds} getDogData={getDogData} />
-      </label>
-      <img className="banner" src={Banner} alt="banner" />
-    </div>
+    <Stack direction="column" spacing={5} alignItems="center">
+      <Dropdown dogBreeds={dogBreeds} getDogData={getDogData} />
+      <img
+        src={Banner}
+        alt="banner"
+        sx={{ margin: 2, border: "1px solid #000" }}
+      />
+    </Stack>
   );
 };
 

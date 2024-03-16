@@ -1,10 +1,20 @@
 import React from "react";
+import MuiButton from "@mui/material/Button";
 
 const Button = (props) => {
   return (
-    <button type="button" onClick={props.onClick}>
+    <MuiButton
+      variant="contained"
+      color="primary"
+      sx={{
+        borderRadius: "20px", // Set the border radius
+      }}
+      type="button"
+      onClick={props.onClick}
+      {...props}
+    >
       {props.children}
-    </button>
+    </MuiButton>
   );
 };
 

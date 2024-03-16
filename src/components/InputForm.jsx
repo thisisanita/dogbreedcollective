@@ -91,8 +91,10 @@ const InputForm = (props) => {
         <input type="text" ref={descriptionRef} placeholder="description" />
         <input type="text" ref={nameRef} placeholder="name" />
         <input type="text" ref={emailRef} placeholder="email" />
+        <Button variant="outlined" onClick={props.toggleTopicModal}>
+          close
+        </Button>
         <Button onClick={handleSubmit}>Submit</Button>
-        <Button onClick={props.toggleTopicModal}>close</Button>
       </div>
     </div>
   );
