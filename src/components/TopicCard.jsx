@@ -68,7 +68,7 @@ const TopicCard = (props) => {
         const data = await res.json();
         // Sort responses by data and time (in descending order)
         const sortedResponses = data.records.sort(
-          (a, b) => new Date(b.createdTime) - new Date(a.createdTime)
+          (a, b) => new Date(a.createdTime) - new Date(b.createdTime)
         );
         // Updating the responseByTopic state with the data from Airtable that is filtered by topic id
         // prevResponses represents the current state of the responsesbyTopic data before the update
