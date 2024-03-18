@@ -7,6 +7,7 @@ import { Stack } from "@mui/material";
 const Homepage = () => {
   const [dogBreeds, setDogBreeds] = useState([]);
 
+  // GETTING DOG BREEDS INFORMATION FROM THE DOG API
   const getDogData = async (signal) => {
     try {
       const res = await fetch("https://api.thedogapi.com/v1" + "/breeds", {

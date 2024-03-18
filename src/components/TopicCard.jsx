@@ -50,8 +50,7 @@ const TopicCard = (props) => {
     // AIRTABLE DATA
     const baseId = "appZRFaaZa7BY5aiI";
     const tableIdOrName = "reply";
-    const token =
-      "patbGdTJLogkMsGuU.101dea3bfabb03bfca08789d55d5d26f3fe55d10dc6a96f4da698d29da36f007";
+    const token = import.meta.env.VITE_AIRTABLE_APIKEY;
 
     try {
       const res = await fetch(

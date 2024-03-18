@@ -46,8 +46,7 @@ const BreedDetailPage = () => {
     // AIRTABLE DATA
     const baseId = "appZRFaaZa7BY5aiI";
     const tableIdOrName = "post";
-    const token =
-      "patbGdTJLogkMsGuU.101dea3bfabb03bfca08789d55d5d26f3fe55d10dc6a96f4da698d29da36f007";
+    const token = import.meta.env.VITE_AIRTABLE_APIKEY;
 
     // FilterByFormula query parameter is used to filter the records returned by the Airtable based on a formula
     // The formula is specified as a string and does a a simple equality check {dogid}=${dogBreedId}
