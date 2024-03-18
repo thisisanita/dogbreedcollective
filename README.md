@@ -2,14 +2,20 @@
 
 ## App Description
 
-Dog Breed Collective is a platfrom for (potential) dog owners to find out more about the dog breeds that they are considering to adopt/purchase by:
+-Dog Breed Collective is a platfrom for the dog community (potential dog owners / dog owners) to find out more about dog breeds.
 
-1. Providing standard information about all recognized dog breeds
-2. Allows users to interact with each other and exchange knowledge about dog breeds
+- Dog Breed Collective has 2 main objectives:
+  1. Provide standard information about over 120 dog breeds, such as temperaments, what were they originally bred for, life span, etc.
+  2. Allow interaction between potential dog owners / dog owners to facillitate knowledge exchange on dog breeds.
 
 Link to Jira board for user stories [here.](https://thisisanita.atlassian.net/jira/software/projects/DBC/boards/1?assignee=5f43392cfcaf93003be71315)
 
 ## Screenshots
+
+###Landing Page
+
+- when
+  ![HomePage](/images/Frame1.png)
 
 ## Technologies Used
 
