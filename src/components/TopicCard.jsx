@@ -129,7 +129,7 @@ const TopicCard = (props) => {
             {convertTo12HourFormat(topic.createdTime)}
           </div>
           {/* [] serves as a safeguard to handle potential special characters or spaces in topic.id for property access */}
-          {/* Uses option chaining: ? to access nested properties */}
+          {/* Uses optional chaining: ? to access nested properties */}
           {/* if topic.id exist in responsesByTopics, it will map out those responses */}
           {responsesByTopic[topic.id]?.map((response, responseIndex) => {
             return (
