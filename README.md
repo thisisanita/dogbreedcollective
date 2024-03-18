@@ -24,20 +24,23 @@ Link to Jira board for user stories [here.](https://thisisanita.atlassian.net/ji
 ### Breed Detail Page
 
 - The breed detail page contains standard information about the dog breed selected such as temperaments, what were they originally bred for, life span, etc.
-  ![Breed Detail Page](/src/images/Frame3.png)
+
+![Breed Detail Page](/src/images/Frame3.png)
 
 ### Breed Detail Page - Post a Topic
 
 - Users can post a topic about the dog breed.
 - Once the topic is created, the post will be shown on the page, with an option to reply to the topic.
-  ![Topic Modal](/src/images/Frame4.png)
-  ![Posted Topic](/src/images/Frame5.png)
+
+![Topic Modal](/src/images/Frame4.png)
+![Posted Topic](/src/images/Frame5.png)
 
 ### Breed Detail Page - Reply to a Topic
 
 - Users can reply to the topics posted on the breed detail page and share information about their experiences regarding that dog breed.
-  ![Response Modal](/src/images/Frame6.png)
-  ![Replied Topic](/src/images/Frame7.png)
+
+![Response Modal](/src/images/Frame6.png)
+![Replied Topic](/src/images/Frame7.png)
 
 ## Technologies Used
 
@@ -47,7 +50,7 @@ Link to Jira board for user stories [here.](https://thisisanita.atlassian.net/ji
 ## Getting started
 
 - To access Dog Breed Collective, click [here](https://dogbreedcollective.vercel.app/).
-- On the Homepage, select a dog breed on the drop down menu.
+- On the Homepage, select a breed on the drop down menu to find out more about that dog breed.
 - On the Breed Detail Page, feel free to post anything question you have about the dog breed.
 - If you want to share your experience on a dog breed, reply to any of the topics on the page.
 
