@@ -2,9 +2,9 @@
 
 ## App Description
 
-- Dog Breed Collective is a platfrom for the dog community (potential dog owners / dog owners) to find out more about dog breeds of interest.
+Dog Breed Collective is a platfrom for the dog community (potential dog owners / dog owners) to find out more about dog breeds of interest.
 
-- Dog Breed Collective has 2 main objectives:
+Dog Breed Collective has 2 main objectives:
 
 1. Provide standard information about over 120 dog breeds, such as temperaments, what were they originally bred for, life span, etc.
 2. Facillitate knowledge exchange between potential dog owners / dog owners on dog-breed specific matters.
