@@ -67,7 +67,7 @@ const BreedDetailPage = () => {
         const data = await res.json();
         // Sort topics by data and time (in descending order)
         const sortedTopics = data.records.sort(
-          (a, b) => new Date(a.createdTime) - new Date(b.createdTime)
+          (a, b) => new Date(b.createdTime) - new Date(a.createdTime)
         );
         setTopics(sortedTopics); // Assuming data.records contains the topics
       } else {
