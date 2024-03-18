@@ -4,24 +4,15 @@ import { TextField } from "@mui/material";
 import { Stack } from "@mui/material";
 
 const ResponseForm = (props) => {
+  //DECLARE THE SELECTEDTOPICID HERE SO THAT THE RIGHT TOPIC ID IS SENT TO AIRTABLE INSTEAD OF ALL THE TOPIC IDS THAT ARE ON THE PAGE
   const selectedTopic = props.selectedTopicId;
   console.log(selectedTopic);
-
-  // // USEREF
-  //   const responseDescriptionRef = useRef();
-  //   const responseNameRef = useRef();
-  //   const responseEmailRef = useRef();
 
   const [resDescription, setResDescription] = useState("");
   const [resName, setResName] = useState("");
   const [resEmail, setResEmail] = useState("");
 
   const handleResponse = async () => {
-    // event.preventDefault();
-    // console.log("hi");
-    // console.log(topicRef.current);
-    // console.log(idRef.current);
-
     const reply = {
       records: [
         {
@@ -36,18 +27,7 @@ const ResponseForm = (props) => {
     };
 
     const addReply = async () => {
-      // const dogid = breed.id;
-      //   const topic = topicRef.current.value;
-      //   const description = responseDescriptionRef.current.value;
-      //   const name = responseNameRef.current.value;
-      //   const email = responseEmailRef.current.value;
       console.log(JSON.stringify(reply));
-      //   console.log(description);
-      // console.log(id);
-      //   console.log(name);
-      //   console.log(email);
-      //   console.log(topic);
-      //   console.log(JSON.stringify(post));
 
       // AIRTABLE DATA
       const baseId = "appZRFaaZa7BY5aiI";
@@ -68,21 +48,15 @@ const ResponseForm = (props) => {
       );
 
       if (res.ok) {
-        //   const newReplyData = await res.json();
         setResDescription("");
         setResName("");
         setResEmail("");
         props.toggleResponseModal();
         props.getReplyData(selectedTopic);
-
-        console.log("hi");
-
-        //   console.log(newReplyData);
       } else {
         console.log("an error has occured");
       }
     };
-
     addReply();
   };
 
@@ -100,8 +74,7 @@ const ResponseForm = (props) => {
           fullWidth
           sx={{
             "& .MuiInputBase-input": {
-              // Target the input field
-              height: "85px", // Set the height
+              height: "85px",
             },
           }}
         ></TextField>

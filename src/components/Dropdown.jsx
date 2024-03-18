@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MuiSelect from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -7,10 +7,10 @@ import InputLabel from "@mui/material/InputLabel";
 
 const Dropdown = (props) => {
   const breeds = props.dogBreeds;
-  console.log(breeds[0]);
 
-  const navigate = useNavigate();
-  const navigateToNewPage = (breedid) => navigate("/breeds/" + breedid);
+  //Navigate to page based on the breed id of the dog
+  const navigate = useNavigate(); //useNavigate returns a function that you can call to navigate to different routes in your application.
+  const navigateToNewPage = (breedId) => navigate("/breeds/" + breedId);
 
   return (
     <FormControl sx={{ width: "70%" }}>

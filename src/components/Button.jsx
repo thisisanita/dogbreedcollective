@@ -7,7 +7,7 @@ const Button = (props) => {
       variant="contained"
       color="primary"
       sx={{
-        borderRadius: "20px", // Set the border radius
+        borderRadius: "20px",
         letterSpacing: "3px",
       }}
       type="button"

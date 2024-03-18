@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
 import BreedCard from "../components/BreedCard";
 import { useParams } from "react-router-dom";
-import Dropdown from "../components/Dropdown";
-import Button from "../components/Button";
 import TopicCard from "../components/TopicCard";
-import InputForm from "../components/InputForm";
 
 const BreedDetailPage = () => {
-  const { breedId } = useParams();
+  const { breedId } = useParams(); // Acess dynamic part of the Dog API url based on the dog breed id
   const [breed, setBreed] = useState({});
   const [topics, setTopics] = useState([]); //Lift state up. State is managed in BreedDetailPage and passed down to children
-  const dogBreedId = breed.id;
+  const dogBreedId = breed.id; // Get breed id of the dog selected on dropdown to filter airtable topic data with
   console.log(dogBreedId);
 
-  // const toggleModal = () => {
-  //   setShowTopicModal(!showTopicModal);
-  // }; //The toggleModal function toggles the value of showModal between true and false.
-
-  // GET DOG BREED DATA FROM DOG API
+  // GET SELECTED DOG BREED DATA (BASED ON DOGBREED SELECTED FROM THE DROPDOWN ON THE HOMEPAGE) FROM DOG API
   const getBreedData = async (signal) => {
     try {
       const res = await fetch(
@@ -56,9 +49,12 @@ const BreedDetailPage = () => {
     const token =
       "patbGdTJLogkMsGuU.101dea3bfabb03bfca08789d55d5d26f3fe55d10dc6a96f4da698d29da36f007";
 
+    // FilterByFormula query parameter is used to filter the records returned by the Airtable based on a formula
+    // The formula is specified as a string and does a a simple equality check {dogid}=${dogBreedId}
+    // ? is to indicate the start of a query string
     try {
       const res = await fetch(
-        `https://api.airtable.com/v0/${baseId}/${tableIdOrName}?filterByFormula={dogid}='${dogBreedId}'`,
+        `https://api.airtable.com/v0/${baseId}/${tableIdOrName}?filterByFormula={dogid}=${dogBreedId}`,
         {
           method: "GET",
           headers: {
@@ -70,7 +66,11 @@ const BreedDetailPage = () => {
 
       if (res.ok) {
         const data = await res.json();
-        setTopics(data.records); // Assuming data.records contains the topics
+        // Sort topics by data and time (in descending order)
+        const sortedTopics = data.records.sort(
+          (a, b) => new Date(a.createdTime) - new Date(b.createdTime)
+        );
+        setTopics(sortedTopics); // Assuming data.records contains the topics
       } else {
         console.log("an error has occured");
       }
@@ -87,14 +87,12 @@ const BreedDetailPage = () => {
 
   return (
     <>
-      {/* <h1>{breedid}</h1> */}
-      {/* <InputForm breed={breed}></InputForm> */}
       <BreedCard breed={breed}></BreedCard>
-      {/* <Button onClick={toggleModal}>Create a Post</Button> */}
       <TopicCard
         breed={breed}
         topics={topics}
         setTopics={setTopics}
+        getTopicData={getTopicData}
       ></TopicCard>
     </>
   );

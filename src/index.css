@@ -252,9 +252,19 @@ p {
 }
 
 .image {
-  width: 50%;
+  width: 40%;
 }
 
 .banner {
-  width: 60%;
+  width: 50%;
+}
+
+.pagesbanner {
+  width: 30%;
+  padding: 0px 16px;
+  margin: 0px;
+  align-self: self-end;
+  justify-content: end;
+
+  /* margin: 32px; */
 }

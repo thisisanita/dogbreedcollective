@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import { TextField } from "@mui/material";
 import { Stack } from "@mui/material";
@@ -7,24 +7,12 @@ const InputForm = (props) => {
   const breed = props.breed;
   console.log(breed.id);
 
-  // // USEREF
-  // const idRef = useRef();
-  // const topicRef = useRef();
-  // const descriptionRef = useRef();
-  // const nameRef = useRef();
-  // const emailRef = useRef();
-
   const [topic, setTopic] = useState("");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   const handleSubmit = async () => {
-    // event.preventDefault();
-    console.log("hi");
-    // console.log(topicRef.current);
-    // console.log(idRef.current);
-
     const post = {
       records: [
         {
@@ -40,17 +28,7 @@ const InputForm = (props) => {
     };
 
     const addPost = async () => {
-      // const dogid = breed.id;
-      console.log(description);
-      console.log(name);
-      console.log(email);
-      console.log(topic);
       console.log(JSON.stringify(post));
-      // console.log(id);
-      // console.log(name);
-      // console.log(email);
-      // console.log(topic);
-      // console.log(JSON.stringify(post));
 
       // AIRTABLE DATA
       const baseId = "appZRFaaZa7BY5aiI";
@@ -113,8 +91,7 @@ const InputForm = (props) => {
           fullWidth
           sx={{
             "& .MuiInputBase-input": {
-              // Target the input field
-              height: "85px", // Set the height
+              height: "85px",
             },
           }}
         ></TextField>
