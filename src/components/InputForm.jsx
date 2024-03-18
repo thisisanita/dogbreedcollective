@@ -70,7 +70,7 @@ const InputForm = (props) => {
   return (
     <div className="overlay">
       <div className="modal">
-        <h2>Create a Topic</h2>
+        <h2>Post a Topic</h2>
         <TextField
           id="outlined-basic"
           label="Topic"
