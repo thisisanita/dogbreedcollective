@@ -62,7 +62,7 @@ const ResponseForm = (props) => {
   return (
     <div className="overlay">
       <div className="modal">
-        <h2>Reply to a post</h2>
+        <h2>Reply to a topic</h2>
         <TextField
           id="outlined-basic"
           label="Description"
