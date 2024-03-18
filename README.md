@@ -15,7 +15,8 @@ Link to Jira board for user stories [here.](https://thisisanita.atlassian.net/ji
 ###Landing Page
 
 - when
-  ![HomePage](/images/Frame1.png)
+
+![HomePage](/src/images/Frame1.png)
 
 ## Technologies Used
 
