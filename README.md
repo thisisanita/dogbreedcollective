@@ -59,3 +59,12 @@ Dog Breed Collective has 2 main objectives:
 - To provide users the option to sort out the topics with the most responses so that they can keep themselves up-to-date with the topics that are most talked about.
 - To create a board with the most popular dog breeds (by the most topics / responses) so that users can use this information to kickstart their shortlisting process for dog breeds to consider.
 - To allow users to filter out dog breeds based on their temperaments so that they can easily shortlist breeds that are suitable for themselves.
+
+## References
+
+- https://www.phind.com/agent?home=true
+- https://www.freecodecamp.org/news/what-is-lifting-state-up-in-react/
+- https://www.freecodecamp.org/news/how-to-format-a-date-with-javascript-date-formatting-in-js/
+- https://medium.com/tinyso/how-to-create-a-modal-component-in-react-from-basic-to-advanced-a3357a2a716a
+- https://stackoverflow.com/questions/41956465/how-to-create-multiple-page-app-using-react
+- https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t
